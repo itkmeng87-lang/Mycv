@@ -4,8 +4,10 @@
 
 html {
   scroll-behavior: smooth;
+
 }
 
 body {
   background-color: #020617; /* Matches slate-950 explicitly */
+
 }

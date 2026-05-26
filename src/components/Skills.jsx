@@ -47,6 +47,7 @@ export default function Skills() {
             className="w-full flex items-center justify-between px-5 py-3 rounded-full border border-slate-800 bg-slate-900/60 backdrop-blur-md text-sm font-medium text-slate-200 hover:border-cyan-500/50 transition-all duration-200"
           >
             <span className="flex items-center gap-2">
+            
               <span>{skillCategories[activeCategory].icon}</span>
               {skillCategories[activeCategory].title}
             </span>
