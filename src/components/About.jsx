@@ -3,20 +3,42 @@ import { motion } from 'framer-motion';
 // Import your portrait image file here
 import profileImg from '../assets/image.png';
 
-export default function About() {
+export default function About({ currentLang }) {
+  // ១. បង្កើតទិន្នន័យអក្សរពីរភាសា (Translations)
+  const translations = {
+    EN: {
+      title: "About Me",
+      subtitle: "Vun Khemra — Web Developer",
+      p1: "Hello! I am a passionate, detail-driven web developer committed to engineering smooth digital solutions. My approach combines clean, logical structural programming with pixel-perfect responsive layouts to create highly intuitive user interfaces.",
+      p2: "By bridging advanced modern design frameworks with organized core coding methodologies, I focus on building accessible platforms that achieve fast loading metrics and flawless real-world operations.",
+      traits: ['Clean Code Structure', 'Responsive Layouts', 'Logic Architecture']
+    },
+    KH: {
+      title: "អំពីខ្ញុំ",
+      subtitle: "វុន ខេមរ៉ា — អ្នកអភិវឌ្ឍន៍គេហទំព័រ",
+      p1: "សួស្តី! ខ្ញុំបាទគឺជាអ្នកអភិវឌ្ឍន៍គេហទំព័រម្នាក់ ដែលមានចំណាយពេល និងយកចិត្តទុកដាក់ខ្ពស់ក្នុងការបង្កើតដំណោះស្រាយឌីជីថលដ៏រលូន។ ការងាររបស់ខ្ញុំផ្តោតលើការសរសេរកូដដែលមានរចនាសម្ព័ន្ធច្បាស់លាស់ ផ្សារភ្ជាប់ជាមួយទម្រង់ Responsive ដ៏ឥតខ្ចោះ ដើម្បីបង្កើតផ្ទាំងកម្មវិធី (UI) ដែលងាយស្រួលប្រើប្រាស់។",
+      p2: "តាមរយៈការរួមបញ្ចូលគ្នារវាង Framework ទំនើបៗ និងវិធីសាស្ត្រកូដស្ដង់ដារ ខ្ញុំផ្តោតសំខាន់លើការបង្កើតគេហទំព័រដែលដំណើរការបានលឿន រហ័ស និងមានប្រសិទ្ធភាពខ្ពស់ក្នុងការប្រើប្រាស់ជាក់ស្តែង។",
+      traits: ['រចនាសម្ព័ន្ធកូដស្អាត', 'ប្លង់ Responsive ឥតខ្ចោះ', 'កូដមាន Logic ច្បាស់លាស់']
+    }
+  };
+
+  // ទាញយកទិន្នន័យទៅតាមភាសាដែលកំពុងជ្រើសរើស (EN ឬ KH)
+  const content = translations[currentLang] || translations.EN;
+
   return (
     <section id="about" className="max-w-5xl mx-auto px-4 py-24 border-t border-slate-900">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
 
-        {/* Left Column: Perfect Square Profile Image Wrapper */}
+        {/* Left Column: Responsive Profile Image Wrapper */}
         <motion.div
           initial={{ opacity: 0, x: -13 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="md:col-span-5 flex justify-center"
+          className="md:col-span-5 flex justify-center w-full px-4 md:px-0"
         >
-          <div className="relative w-full max-w-[360px] aspect-square rounded-[1.5rem] overflow-hidden border border-slate-800 bg-slate-900 group">
+          {/* កែប្រែត្រង់ max-w-[] នេះដើម្បីកុំឱ្យវាធ្លាយដាច់គែមលើទូរស័ព្ទដៃ */}
+          <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] aspect-square rounded-[1.5rem] overflow-hidden border border-slate-800 bg-slate-900 group">
             {/* Ambient Backlight Glow effect to simulate the pink/blue backdrop */}
             <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
 
@@ -27,6 +49,7 @@ export default function About() {
             />
           </div>
         </motion.div>
+
         {/* Right Column: Clean Structural Typography Layout */}
         <motion.div
           initial={{ opacity: 0, x: 13 }}
@@ -36,34 +59,33 @@ export default function About() {
           className="md:col-span-7 space-y-5"
         >
           {/* Bold Minimalist Section Header */}
-          <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white uppercase font-sans">
-            About Me
+          <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white uppercase">
+            {content.title}
           </h2>
 
           {/* Subheading Branding String */}
-          <h3 className="text-sm font-mono tracking-widest uppercase text-cyan-400 font-bold">
-            Vun Khemra — Web Developer
+          <h3 className="text-sm tracking-widest uppercase text-cyan-400 font-bold">
+            {content.subtitle}
           </h3>
 
           {/* Refined Professional Description Scripts */}
-          <div className="space-y-4 text-slate-400 leading-relaxed relative px-6 py-3  text-gray-800 font-medium overflow-hidden transition-colors duration-300
+          <div className="space-y-4 text-slate-400 leading-relaxed relative px-6 py-3 overflow-hidden transition-colors duration-300
                         before:absolute before:left-0 before:top-0 before:h-0 before:w-[4px] before:bg-blue-500 before:transition-all before:duration-300 before:ease-in-out
                         hover:before:h-full text-sm sm:text-base font-normal">
             <p>
-              Hello! I am a passionate, detail-driven web developer committed to engineering smooth digital solutions. My approach combines clean, logical structural programming with pixel-perfect responsive layouts to create highly intuitive user interfaces.
+              {content.p1}
             </p>
             <p>
-              By bridging advanced modern design frameworks with organized core coding methodologies, I focus on building accessible platforms that achieve fast loading metrics and flawless real-world operations.
+              {content.p2}
             </p>
           </div>
 
-
           {/* Core Trait Pill Nodes */}
           <div className="flex flex-wrap gap-2 pt-3">
-            {['Clean Code Structure', 'Responsive Layouts', 'Logic Architecture'].map((trait) => (
+            {content.traits.map((trait) => (
               <span
                 key={trait}
-                className="text-[11px] font-mono font-semibold bg-slate-900 border border-slate-800 text-slate-300 px-4 py-1.5 rounded-full hover:border-cyan-500/30 hover:text-cyan-400 transition-colors duration-300"
+                className="text-[11px]  font-semibold bg-slate-900 border border-slate-800 text-slate-300 px-4 py-1.5 rounded-full hover:border-cyan-500/30 hover:text-cyan-400 transition-colors duration-300"
               >
                 {trait}
               </span>
