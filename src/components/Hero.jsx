@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import profilecv from '../assets/profileCV.jpg';
 
 export default function Hero({ currentLang }) {
-  // ទិន្នន័យអក្សរពីរភាសា
   const content = {
     EN: {
       welcome: "WELCOME TO MY PORTFOLIO",
@@ -24,8 +23,6 @@ export default function Hero({ currentLang }) {
   };
 
   const currentContent = content[currentLang];
-
-  // ប្រព័ន្ធអក្សររត់ Typewriter Logic
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const typingSpeed = 150;
@@ -58,8 +55,8 @@ export default function Hero({ currentLang }) {
         transition={{ duration: 0.6 }}
         className="flex-1 space-y-6 text-center md:text-left"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs font-mono tracking-wider">
-          <span className="w-2 h-0.5​​ rounded-full  py-4 bg-cyan-400 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-xs  tracking-wider">
+          <span className="w-2 h-0.5​​ rounded-full  py-3 bg-cyan-400 animate-pulse" />
           <div className='text-sm'>{currentContent.welcome}</div>
         </div>
 
@@ -85,7 +82,6 @@ export default function Hero({ currentLang }) {
         </div>
       </motion.div>
 
-      {/* Profile Image Column - Fully Responsive Fixed */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}

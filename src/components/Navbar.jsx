@@ -35,7 +35,6 @@ export default function Navbar({ currentLang, setCurrentLang }) {
     <nav className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/70 border-b border-slate-800/60">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
 
-        {/* ================= LOGO SECTION ================= */}
         <motion.span
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -44,8 +43,7 @@ export default function Navbar({ currentLang, setCurrentLang }) {
           {content.logo}
         </motion.span>
 
-        {/* ================= DESKTOP MENU ================= */}
-        <div className="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <div className="hidden md:flex items-center space-x-8 text-sm ">
           {navLinks.map((link, index) => (
             <motion.a
               initial={{ opacity: 0, y: -10 }}
