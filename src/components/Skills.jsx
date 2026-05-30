@@ -1,53 +1,50 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaPython, FaGitAlt, FaGithub } from 'react-icons/fa';
+import { SiTailwindcss, SiExpress } from 'react-icons/si';
+import { TbBrandCpp } from 'react-icons/tb';
 
 export default function Skills({ currentLang }) {
-  // ១. រៀបចំទិន្នន័យប្រភេទជំនាញ និងចំណងជើងជា ២ ភាសា
   const translations = {
     EN: {
       title: "Technical Stack",
       subtitle: "Select a stack to view specific language competencies.",
       categories: {
         frontend: { title: 'Frontend Development', icon: '🌐' },
-        backend: { title: 'Backend & Core Logic', icon: '⚙️' }
+        backend: { title: 'Backend Development', icon: '⚙️' }
       }
     },
     KH: {
       title: "ជំនាញបច្ចេកទេស",
       subtitle: "ជ្រើសរើសផ្នែកបច្ចេកវិទ្យាដើម្បីមើលកម្រិតនៃជំនាញនីមួយៗ។",
       categories: {
-        frontend: { title: 'ការអភិវឌ្ឍន៍ Frontend', icon: '🌐' },
-        backend: { title: 'ប្រព័ន្ធ Backend & Core Logic', icon: '⚙️' }
+        frontend: { title: 'ការអភិវឌ្ឍន៍ផ្នែកខាងមុខ', icon: '🌐' },
+        backend: { title: 'ការអភិវឌ្ឍន៍ផ្នែកខាងក្រោយ', icon: '⚙️' }
       }
     }
   };
 
-  // ២. រក្សាទុកតម្លៃភាគរយ និងពណ៌ដដែល (មិនប្រែប្រួលតាមភាសាទេ)
-  const skillDetails = {
-    frontend: [
-      { name: 'HTML5 / CSS3', level: 95, color: 'from-orange-500 to-amber-400' },
-      { name: 'JavaScript (ES6+)', level: 85, color: 'from-yellow-500 to-amber-300' },
-      { name: 'React.js', level: 80, color: 'from-cyan-500 to-blue-500' },
-      { name: 'Tailwind CSS', level: 90, color: 'from-teal-400 to-cyan-400' },
-    ],
-    backend: [
-      { name: 'Node.js / Express', level: 75, color: 'from-green-500 to-emerald-400' },
-      { name: 'Python', level: 70, color: 'from-blue-500 to-yellow-400' },
-      { name: 'C / C++', level: 80, color: 'from-indigo-500 to-purple-500' },
-      { name: 'Git / GitHub', level: 80, color: 'from-slate-600 to-slate-400' },
-    ]
-  };
+const skillDetails = {
+  frontend: [
+    { name: 'HTML & CSS', level: 95, color: 'from-orange-500 to-amber-400', icon: <div className="flex gap-1"><FaHtml5 className="text-orange-500" /><FaCss3Alt className="text-blue-500" /></div> },
+    { name: 'JavaScript (ES6+)', level: 85, color: 'from-yellow-500 to-amber-300', icon: <FaJsSquare className="text-yellow-400" /> },
+    { name: 'React.js', level: 80, color: 'from-cyan-500 to-blue-500', icon: <FaReact className="text-cyan-400 animate-[spin_8s_linear_infinite]" /> }, // ថែម animate ឱ្យរង្វង់ React វិលតិចៗ
+    { name: 'Tailwind CSS', level: 90, color: 'from-teal-400 to-cyan-400', icon: <SiTailwindcss className="text-cyan-400" /> },
+  ],
+  backend: [
+    { name: 'Node.js / Express', level: 75, color: 'from-green-500 to-emerald-400', icon: <div className="flex gap-1"><FaNodeJs className="text-green-500" /><SiExpress className="text-slate-400" /></div> },
+    { name: 'Python', level: 70, color: 'from-blue-500 to-yellow-400', icon: <FaPython className="text-blue-400" /> },
+    { name: 'C / C++', level: 80, color: 'from-indigo-500 to-purple-500', icon: <TbBrandCpp className="text-indigo-400" /> },
+    { name: 'Git / GitHub', level: 80, color: 'from-slate-600 to-slate-400', icon: <div className="flex gap-1"><FaGitAlt className="text-orange-600" /><FaGithub className="text-white" /></div> },
+  ]
+};
 
   const content = translations[currentLang] || translations.EN;
-
-  // State សម្រាប់គ្រប់គ្រងប្រភេទជំនាញដែលកំពុងមើល និងការបើក/បិទ Dropdown
   const [activeCategory, setActiveCategory] = useState('frontend');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
     <section id="skills" className="max-w-4xl mx-auto px-4 py-24 border-t border-slate-900">
-      
-      {/* Header Section */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
         <div className="text-center md:text-left space-y-2">
           <h2 className="text-3xl font-extrabold tracking-tight text-white">
@@ -57,8 +54,6 @@ export default function Skills({ currentLang }) {
             {content.subtitle}
           </p>
         </div>
-
-        {/* --- INTERACTIVE DROPDOWN MENU --- */}
         <div className="relative w-64">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -75,8 +70,6 @@ export default function Skills({ currentLang }) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-
-          {/* Dropdown Menu List Items */}
           <AnimatePresence>
             {isDropdownOpen && (
               <motion.div
@@ -109,7 +102,6 @@ export default function Skills({ currentLang }) {
         </div>
       </div>
 
-      {/* --- DISPLAY CARDS WITH FULLY ROUNDED UI --- */}
       <div className="bg-slate-900/20 backdrop-blur-md border border-slate-800/60 p-6 sm:p-8 rounded-[2rem]">
         <motion.div 
           layout 
@@ -126,16 +118,13 @@ export default function Skills({ currentLang }) {
                 className="p-5 rounded-[1.5rem] border border-slate-800/80 bg-slate-900/40 hover:border-slate-700 transition-all duration-300 group"
               >
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm font-semibold text-slate-200 group-hover:text-cyan-400 transition-colors">
-                    {skill.name}
+                  <span className="text-sm font-semibold gap-2 flex text-slate-200 group-hover:text-cyan-400 transition-colors">
+                    <span className='mt-0.5'>{skill.icon}</span>{skill.name}
                   </span>
-                  {/* Rounded Badge */}
                   <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-slate-950 border border-slate-800 text-cyan-400">
                     {skill.level}%
                   </span>
                 </div>
-
-                {/* Fully Rounded Progress Pill tracking system */}
                 <div className="w-full bg-slate-950 h-3 rounded-full p-[2px] overflow-hidden border border-slate-800/50">
                   <motion.div
                     initial={{ width: 0 }}

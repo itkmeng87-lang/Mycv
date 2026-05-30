@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function Services({ currentLang }) {
-  // ១. រៀបចំទិន្នន័យចំណងជើង និងសេវាកម្មនីមួយៗជា ២ ភាសា
   const translations = {
     EN: {
       sectionTitle: "Services",
@@ -34,7 +33,6 @@ export default function Services({ currentLang }) {
         viewport={{ once: true }}
         className="text-center space-y-3 mb-16"
       >
-        {/* ប្តូរចំណងជើងផ្នែកសេវាកម្មតាមភាសា */}
         <h2 className="text-3xl font-bold tracking-tight text-white">
           {content.sectionTitle}
         </h2>
@@ -51,11 +49,11 @@ export default function Services({ currentLang }) {
             key={service.title}
             className="p-6 rounded-xl border border-slate-800/80 bg-slate-900/30 backdrop-blur-md hover:border-cyan-500/30 transition-all duration-300 flex flex-col justify-between"
           >
-            <div className="space-y-4">
-              <div className="text-3xl bg-slate-950 w-12 h-12 rounded-lg flex items-center justify-center border border-slate-800">
+            <div className="space-y-4 ">
+              <div className="text-3xl bg-slate-950 w-12  m-auto h-12 rounded-lg flex items-center justify-center border border-slate-800">
                 {service.icon}
               </div>
-              <h3 className="text-lg  text-white">
+              <h3 className="text-lg mt-3 text-center  text-white">
                 {service.title}
               </h3>
               <p className="text-slate-400 text-xs leading-relaxed">

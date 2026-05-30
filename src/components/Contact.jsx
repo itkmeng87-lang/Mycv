@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import { FaGithub, FaFacebook, FaTelegram } from "react-icons/fa";
+import ContactForm from '../client/ContactForm'; //
 
 export default function Contact({ currentLang }) {
-  const [form, setForm] = useState({ name: '', email: '', msg: '' });
-
-  // ១. រៀបចំខ្លឹមសារអក្សរទាំងអស់នៅក្នុង Form ជា ២ ភាសា
+  // ប្រព័ន្ធទិន្នន័យបកប្រែភាសារបស់អ្នក
   const translations = {
     EN: {
       sectionTitle: "Get In Touch",
@@ -13,8 +13,8 @@ export default function Contact({ currentLang }) {
       labelName: "Identity",
       labelEmail: "Email Endpoint",
       labelMsg: "Project Scope",
-      placeName: "John Doe",
-      placeEmail: "john@example.com",
+      placeName: "Your Name",
+      placeEmail: "Your Email",
       placeMsg: "Describe the deployment guidelines",
       btnSubmit: "Transmit Message"
     },
@@ -35,14 +35,13 @@ export default function Contact({ currentLang }) {
   const content = translations[currentLang] || translations.EN;
 
   return (
-    <section id="contact" className="max-w-6xl mx-auto px-4 py-24 border-t border-slate-900">
-      <motion.div 
+    <section id="contact" className="max-w-6xl mx-auto px-4 py-24 border-t border-slate-900 bg-[#070a13]">
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="text-center space-y-3 mb-16"
       >
-        {/* ប្តូរចំណងជើងផ្នែកទំនាក់ទំនងតាមភាសា */}
         <h2 className="text-3xl font-bold tracking-tight text-white">
           {content.sectionTitle}
         </h2>
@@ -50,74 +49,35 @@ export default function Contact({ currentLang }) {
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-12 max-w-4xl mx-auto items-start">
-        {/* ផ្នែកព័ត៌មានទំនាក់ទំនងខាងឆ្វេង */}
+        {/* ផ្នែកខាងឆ្វេង៖ បណ្តាញទំនាក់ទំនងព័ត៌មានផ្ទាល់ខ្លួន */}
         <div className="md:col-span-5 space-y-6">
           <div className="p-5 rounded-xl border border-slate-800/60 bg-slate-900/20 backdrop-blur-sm">
-            <h4 className="text-slate-500  text-xs uppercase tracking-wider mb-1">
+            <h4 className="text-slate-500 text-xs uppercase tracking-wider mb-1">
               {content.channelsTitle}
             </h4>
             <p className="text-white font-medium text-sm">vunkhemra06@gamil.com</p>
-            <p className="text-slate-400 text-xs mt-1"> +885 966 011 051</p>
+            <p className="text-slate-400 text-xs mt-1">+885 966 011 051</p>
           </div>
           <div className="p-5 rounded-xl border border-slate-800/60 bg-slate-900/20 backdrop-blur-sm">
-            <h4 className="text-slate-500 text-xs uppercase tracking-wider mb-2">
+            <h4 className="text-slate-500 text-center text-xs uppercase tracking-wider mb-2">
               {content.connectTitle}
             </h4>
-            <div className="flex gap-4 text-xs  text-cyan-400">
-              <a href="#" className="hover:underline">GitHub</a>
-              <a href="#" className="hover:underline">LinkedIn</a>
-              <a href="#" className="hover:underline">Twitter</a>
+            <div className="flex gap-4 justify-center text-xs text-cyan-500">
+              <a href="https://github.com/itkmeng87-lang" target="_blank" rel="noreferrer" className="flex gap-2 hover:text-cyan-600">
+                <FaGithub className='mt-0.5' /> GitHub
+              </a>
+              <a href="https://www.facebook.com/share/18D7ry5Hnd/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="flex gap-2 hover:text-cyan-600">
+                <FaFacebook className='mt-0.5' /> Facebook
+              </a>
+              <a href="https://t.me/vunkhemra" target="_blank" rel="noreferrer" className="flex gap-2 hover:text-cyan-600">
+                <FaTelegram className='mt-0.5' /> Telegram
+              </a>
             </div>
           </div>
         </div>
-
-        {/* ផ្នែក Form បញ្ចូលសារខាងស្តាំ */}
-        <form onSubmit={(e) => e.preventDefault()} className="md:col-span-7 space-y-4 p-6 rounded-xl border border-slate-800/80 bg-slate-900/30 backdrop-blur-md">
-          <div>
-            <label className="block  text-[11px] uppercase tracking-wider text-slate-400 mb-1">
-              {content.labelName}
-            </label>
-            <input 
-              type="text" 
-              value={form.name} 
-              onChange={(e) => setForm({...form, name: e.target.value})} 
-              required 
-              className="w-full bg-slate-950 border border-slate-800/80 rounded-lg p-2.5 text-slate-200 focus:outline-none focus:border-cyan-500 transition text-sm" 
-              placeholder={content.placeName} 
-            />
-          </div>
-          <div>
-            <label className="block  text-[11px] uppercase tracking-wider text-slate-400 mb-1">
-              {content.labelEmail}
-            </label>
-            <input 
-              type="email" 
-              value={form.email} 
-              onChange={(e) => setForm({...form, email: e.target.value})} 
-              required 
-              className="w-full bg-slate-950 border border-slate-800/80 rounded-lg p-2.5 text-slate-200 focus:outline-none focus:border-cyan-500 transition text-sm" 
-              placeholder={content.placeEmail} 
-            />
-          </div>
-          <div>
-            <label className="block  text-[11px] uppercase tracking-wider text-slate-400 mb-1">
-              {content.labelMsg}
-            </label>
-            <textarea 
-              rows="4" 
-              value={form.msg} 
-              onChange={(e) => setForm({...form, msg: e.target.value})} 
-              required 
-              className="w-full bg-slate-950 border border-slate-800/80 rounded-lg p-2.5 text-slate-200 focus:outline-none focus:border-cyan-500 transition text-sm resize-none" 
-              placeholder={content.placeMsg} 
-            />
-          </div>
-          
-          {/* ប៊ូតុងផ្ញើសារ */}
-          <button type="submit" className="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-950  py-2.5 rounded-lg text-sm tracking-wide transition duration-150">
-            {content.btnSubmit}
-          </button>
-        </form>
+        <div className="md:col-span-7">
+          <ContactForm text={content} currentLang={currentLang} />
+        </div>
       </div>
     </section>
   );

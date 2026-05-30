@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar({ currentLang, setCurrentLang }) {
   const [isOpen, setIsOpen] = useState(false);
-
-  // ១. ទិន្នន័យ Logo និង បញ្ជី Menu ជា ២ ភាសា
   const translations = {
     EN: {
       logo: "Portfolio.",
@@ -27,14 +25,12 @@ export default function Navbar({ currentLang, setCurrentLang }) {
       ]
     }
   };
-
   const content = translations[currentLang] || translations.EN;
   const navLinks = content.menu;
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/70 border-b border-slate-800/60">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-
         <motion.span
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -42,7 +38,6 @@ export default function Navbar({ currentLang, setCurrentLang }) {
         >
           {content.logo}
         </motion.span>
-
         <div className="hidden md:flex items-center space-x-8 text-sm ">
           {navLinks.map((link, index) => (
             <motion.a
@@ -57,15 +52,12 @@ export default function Navbar({ currentLang, setCurrentLang }) {
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-400 transition-all group-hover:w-full" />
             </motion.a>
           ))}
-
-          {/* ប៊ូតុងប្តូរភាសា (Desktop View) */}
           <button
             onClick={() => setCurrentLang(currentLang === 'EN' ? 'KH' : 'EN')}
             className="ml-2 border border-slate-800 bg-slate-900/50 px-3 py-1.5 rounded-sm text-xs font-mono font-bold text-cyan-400 hover:border-cyan-500/40 transition-colors flex items-center gap-2 cursor-pointer"
           >
             {currentLang === 'EN' ? (
               <span className="flex items-center gap-2">
-                {/* SVG ទង់ជាតិកម្ពុជា 🇰🇭 (Desktop) */}
                 <svg className="w-5 h-3.5 rounded-sm shadow-sm" viewBox="0 0 256 160" xmlns="http://www.w3.org/2000/svg">
                   <rect width="256" height="160" fill="#032EA1"/>
                   <rect y="40" width="256" height="80" fill="#E61A22"/>
@@ -81,7 +73,6 @@ export default function Navbar({ currentLang, setCurrentLang }) {
               </span>
             ) : (
               <span className="flex items-center gap-2">
-                {/* SVG ទង់ជាតិអាមេរិក 🇺🇸 (Desktop) */}
                 <svg className="w-5 h-3.5 rounded-sm shadow-sm" viewBox="0 0 741 390">
                   <rect width="741" height="390" fill="#B22234"/>
                   <path d="M0 30h741M0 90h741M0 150h741M0 210h741M0 270h741M0 330h741" stroke="#FFF" strokeWidth="30"/>
@@ -97,17 +88,13 @@ export default function Navbar({ currentLang, setCurrentLang }) {
             )}
           </button>
         </div>
-
-        {/* ================= MOBILE VIEW ================= */}
         <div className="flex items-center gap-4 md:hidden">
-          {/* ប៊ូតុងប្តូរភាសា (Mobile View - កែពណ៌ឆ្នូតត្រូវ ១០០%) */}
           <button
             onClick={() => setCurrentLang(currentLang === 'EN' ? 'KH' : 'EN')}
             className="border border-slate-800 bg-slate-900/50 px-2.5 py-1.5 rounded-sm text-xs font-mono font-bold text-cyan-400 flex items-center gap-2 cursor-pointer"
           >
             {currentLang === 'EN' ? (
               <span className="flex items-center gap-1.5">
-                {/* SVG ទង់ជាតិកម្ពុជា 🇰🇭 (Mobile) */}
                 <svg className="w-4 h-2.5 rounded-xs shadow-sm" viewBox="0 0 256 160" xmlns="http://www.w3.org/2000/svg">
                   <rect width="256" height="160" fill="#032EA1"/>
                   <rect y="40" width="256" height="80" fill="#E61A22"/>
@@ -123,7 +110,6 @@ export default function Navbar({ currentLang, setCurrentLang }) {
               </span>
             ) : (
               <span className="flex items-center gap-1.5">
-                {/* SVG ទង់ជាតិអាមេរិក 🇺🇸 (Mobile) */}
                 <svg className="w-4 h-2.5 rounded-xs shadow-sm" viewBox="0 0 741 390">
                   <rect width="741" height="390" fill="#B22234"/>
                   <path d="M0 30h741M0 90h741M0 150h741M0 210h741M0 270h741M0 330h741" stroke="#FFF" strokeWidth="30"/>
@@ -138,8 +124,6 @@ export default function Navbar({ currentLang, setCurrentLang }) {
               </span>
             )}
           </button>
-
-          {/* ប៊ូតុងបើក Hamburger Menu លើ Mobile */}
           <button onClick={() => setIsOpen(!isOpen)} className="text-slate-300 hover:text-cyan-400 focus:outline-none">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
@@ -151,8 +135,6 @@ export default function Navbar({ currentLang, setCurrentLang }) {
           </button>
         </div>
       </div>
-
-      {/* ================= MOBILE DRAWER ================= */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
