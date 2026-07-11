@@ -4,11 +4,21 @@
 
 html {
   scroll-behavior: smooth;
+  
 
 }
 
 body {
   background-color: #020617; 
     font-family: "Kantumruy Pro", sans-serif;
+  
 
+}
+/* បន្ថែម !important ចូលទៅក្នុង index.css */
+.no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+}
+.no-scrollbar {
+    -ms-overflow-style: none !important; 
+    scrollbar-width: none !important;
 }

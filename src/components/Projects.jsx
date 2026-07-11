@@ -110,7 +110,7 @@ export default function Projects({ currentLang }) {
           tags: ['php', 'laravel', 'MySql'],
           image: 'https://i.pinimg.com/1200x/3c/13/74/3c1374c261b990ff74ab5b2f66cab1f2.jpg',
           codeLink: '',
-          liveLink: '',  
+          liveLink: '',
         }
       ]
     },
@@ -141,13 +141,13 @@ export default function Projects({ currentLang }) {
       backendProjects: [
         {
           title: 'E-Commerce API Service',
-          description: 'ប្រព័ន្ធគ្រប់គ្រងទិន្នន័យ API នៅខាងក្រោយសម្រាប់ដំណើរការទិញទំនិញ ការផ្ទៀងផ្ទាត់គណនី និងការរក្សាទុកទិន្នន័យដោយសុវត្ថិភាព។ បញ្ជាក់: កម្រោងនេះមិនទាន់ហើយ​​។',
-          tags: ['php', 'laravel', 'MySql'],
+          description: 'ប្រព័ន្ធគ្រប់គ្រងទិន្នន័យ API នៅខាងក្រោយសម្រាប់ដំណើរការទិញទំនិញ การផ្ទៀងផ្ទាត់គណនី និងការរក្សាទុកទិន្នន័យដោយសុវត្ថិភាព។ បញ្ជាក់: គម្រោងនេះមិនទាន់ហើយឡើយ។',
+          tags: ['PHP', 'Laravel', 'MySQL'],
           image: 'https://i.pinimg.com/1200x/3c/13/74/3c1374c261b990ff74ab5b2f66cab1f2.jpg',
-          codeLink: '',
-          liveLink: '',
+          codeLink: "",  // ទុកឱ្យនៅទំនេរស្អាតបែបនេះ (ឬដាក់ null)
+          liveLink: "",  // ទុកឱ្យនៅទំនេរស្អាតបែបនេះ (ឬដាក់ null)
         }
-      ]
+      ] 
     }
   };
 
@@ -155,7 +155,7 @@ export default function Projects({ currentLang }) {
 
   return (
     <section id="projects" className="max-w-6xl mx-auto px-4 py-24 border-t border-slate-900 space-y-24">
-      
+
       {/* =================  FRONTEND PROJECTS ================= */}
       <div>
         <motion.div

@@ -7,11 +7,11 @@ export default function Navbar({ currentLang, setCurrentLang }) {
     EN: {
       logo: "Portfolio.",
       menu: [
-        { name: 'About', id: 'about' },
-        { name: 'Skills', id: 'skills' },
-        { name: 'Projects', id: 'projects' },
-        { name: 'Services', id: 'services' },
-        { name: 'Contact', id: 'contact' },
+        { name: 'ABOUT', id: 'about' },
+        { name: 'SKILLS', id: 'skills' },
+        { name: 'PROJECTS', id: 'projects' },
+        // { name: 'Services', id: 'services' },
+        { name: 'CONTACT', id: 'contact' },
       ]
     },
     KH: {
@@ -20,7 +20,7 @@ export default function Navbar({ currentLang, setCurrentLang }) {
         { name: 'អំពីខ្ញុំ', id: 'about' },
         { name: 'ជំនាញ', id: 'skills' },
         { name: 'គម្រោង', id: 'projects' },
-        { name: 'សេវាកម្ម', id: 'services' },
+        // { name: 'សេវាកម្ម', id: 'services' },
         { name: 'ទំនាក់ទំនង', id: 'contact' },
       ]
     }

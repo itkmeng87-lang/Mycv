@@ -9,8 +9,8 @@ import { SiMysql,SiMongodb } from "react-icons/si";
 export default function Skills({ currentLang }) {
   const translations = {
     EN: {
-      title: "TECHNICAL STACK",
-      subtitle: "Select a stack to view specific language competencies.",
+      title: "TECHNOLOGY SKILLS ",
+      // subtitle: "Select a stack to view specific language competencies.",
       categories: {
         frontend: { title: 'Frontend Development', icon: '🌐' },
         backend: { title: 'Backend Development', icon: '⚙️' },
@@ -37,9 +37,9 @@ const skillDetails = {
   ],
   backend: [
     { name: 'Laravel', level: 40, color: 'from-green-500 to-emerald-400', icon: <div className="flex gap-1 "><FaLaravel className='text-red-600'/></div> },
-    { name: 'Python', level: 50, color: 'from-blue-500 to-yellow-400', icon: <FaPython className="text-blue-400" /> },
-    { name: 'C / C++', level: 60, color: 'from-indigo-500 to-purple-500', icon: <TbBrandCpp className="text-indigo-400" /> },
-    { name: 'Git / GitHub', level: 80, color: 'from-slate-600 to-slate-400', icon: <div className="flex gap-1"><FaGitAlt className="text-orange-600" /><FaGithub className="text-white" /></div> },
+    // { name: 'Python', level: 50, color: 'from-blue-500 to-yellow-400', icon: <FaPython className="text-blue-400" /> },
+    // { name: 'C / C++', level: 60, color: 'from-indigo-500 to-purple-500', icon: <TbBrandCpp className="text-indigo-400" /> },
+    // { name: 'Git / GitHub', level: 80, color: 'from-slate-600 to-slate-400', icon: <div className="flex gap-1"><FaGitAlt className="text-orange-600" /><FaGithub className="text-white" /></div> },
     { name: 'Php', level: 60, color: 'from-slate-600 to-slate-400', icon: <div className="flex gap-2"><FaPhp className='text-blue-600 text-xl'/></div> },
   ],
   database: [
@@ -68,7 +68,7 @@ const skillDetails = {
         <div className="relative w-64">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="w-full flex items-center justify-between px-5 py-3 rounded-full   border border-slate-800 bg-slate-900/60 backdrop-blur-md text-sm  text-slate-200 hover:border-cyan-500/50 transition-all duration-200"
+            className="w-full flex items-center justify-between px-5 py-3 rounded-x   border border-slate-800 bg-slate-900/60 backdrop-blur-md text-sm  text-slate-200 hover:border-cyan-500/50 transition-all duration-200"
           >
             <span className="flex items-center gap-2">
               <span>{content.categories[activeCategory].icon}</span>
